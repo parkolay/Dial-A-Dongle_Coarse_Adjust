@@ -50,5 +50,7 @@ Sketch uses 18706 bytes (60%) of program storage space. Maximum is 30720 bytes.
 Global variables use 1546 bytes (75%) of dynamic memory, leaving 502 bytes for local variables. Maximum is 2048 bytes.
 
 /*  DAP  initial check-in     02-09-2023 
+
 /*  DAP  added coarse adjust  03-10-2023
+
 */
