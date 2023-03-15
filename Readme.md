@@ -9,8 +9,10 @@ Several lsb were dropped and it didn't help, various delays and simple averaging
 a 3.3V LDO was not attempted but might have helped.
 I am really starting to think this should be using a rotary encoder...
 Rotary encoder is better, the signal does not wonder but response is much slower.  
-Spinning encoder shaft to fast will cause erroneous results.
+Spinning encoder shaft too fast will cause erroneous results.
 Coarse adjust using analog input was added, faster method of selection without jitter being an issue.
+Encoder shaft has momentary button, using this to select coarse and fine mode.  
+Returning from coarse mode sets new encoder position to previous analog position (returning from fine mode will NOT adjust analog position).
 Device is not so simple any more.
 
  *  // Pinout
