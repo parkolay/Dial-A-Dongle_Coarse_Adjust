@@ -1,3 +1,5 @@
+//
+
 void UpdateButtonInput()
 {
     // read the state of the switch into a local variable:
@@ -30,15 +32,15 @@ void UpdateButtonInput()
       {
         ledState = !ledState;
         EncoderPosition = AnalogReadValue;        
-      }
-    }
-  }
+      }// end if (buttonState == HIGH)
+    }// end if (reading != buttonState) 
+  }// end if ((millis() - lastDebounceTime) > debounceDelay) 
 
-  // set the LED:
+  // set the LED on pin 13:
   digitalWrite(ledPin, ledState);
   Serial.println(ledState);
   InputTypeState = ledState;
 
   // save the reading. Next time through the loop, it'll be the lastButtonState:
   lastButtonState = reading;
-}
+}//end void UpdateButtonInput()

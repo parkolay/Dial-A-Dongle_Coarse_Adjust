@@ -1,11 +1,15 @@
-void UpdateEncoder()
+// 
+// 
+
+int UpdateEncoder()  
 {
-  long newPosition = EncoderKnob.read();
+  long  newPosition = EncoderKnob.read(); //read encoder postion and set temp varible
   
   if (newPosition != oldPosition) 
   {
     oldPosition = newPosition;
     EncoderPosition = oldPosition;
+    Serial.print("newPosition ");
     Serial.println(newPosition);
 
   //set constraints on EncoderPosition
@@ -19,6 +23,6 @@ void UpdateEncoder()
     }
       Serial.println(EncoderPosition);
 
-  }//end if (newPosition != oldPosition)
-  
-}//end void UpdateEncoder()
+  }//end if (newPosition != oldPosition) 
+  return EncoderPosition;
+}//end int UpdateEncoder()

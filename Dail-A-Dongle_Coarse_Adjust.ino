@@ -11,8 +11,9 @@
  *  //  BTN       --> D08;
  *  //  EncoderA  --> D10;
  *  //  EncoderB  --> D11;
- *  //  SCL       --> A04; Tied HIGH W/ 3k3 Ohm resistor
- *  //  SDA       --> A05; Tied HIGH W/ 3k3 Ohm resistor
+ *  //  LED       --> D13;
+ *  //  SCL       --> A04; Tied HIGH W/ 1k7 Ohm resistor
+ *  //  SDA       --> A05; Tied HIGH W/ 1k7 Ohm resistor
  *
  * //   DAP  initial check-in  02-09-2023  
  */
@@ -70,20 +71,20 @@ void loop(void)
 {
   UpdateButtonInput();
 
-    if (InputTypeState == HIGH)
+    if (InputTypeState == HIGH)     //has the momentary switch been pushed to change state to HIGH?
     { 
-      Update_Analog();
-      PORTD = AnalogReadValue;  //push the analog read value to PORTD  
-      UpdateDisplayAnalog();  
-      EncoderPosition = AnalogReadValue;
-    }// end if (InputTypeState == HIGH)
+      int temp = Update_Analog();  //update_analog() has a return that will set the temp varible
+      PORTD = temp;                //push the analog read value to PORTD  
+      UpdateDisplayAnalog(temp);  //now we send that same temp varible to another function
+      EncoderKnob.write(temp);    //we use the same temp varible one more time before we leve this area
+    }//end if (InputTypeState == HIGH)
 
-    else if (InputTypeState == LOW)
+    else if (InputTypeState == LOW)//has the momentary switch been pushed to change state to LOW?
     {
-      UpdateEncoder();
-      PORTD = EncoderPosition;  //push the analog read value to PORTD
-      UpdateDisplayEncoder();
-    }//end else if (InputTypeState == LOW)
+      int temp = UpdateEncoder();
+      PORTD = temp;  //push the analog read value to PORTD
+      UpdateDisplayEncoder(temp);
+    }// end else if (InputTypeState == LOW) 
 
   //delay(500);//delay here to maybe let the adc settle?
 }//end void loop(void) 

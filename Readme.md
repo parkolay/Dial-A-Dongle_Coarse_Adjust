@@ -1,4 +1,8 @@
 Dial-A-Dongle
+
+DAP  initial check-in     02-09-2023 
+DAP  added coarse adjust  03-10-2023
+
 Simple device used for selecting a hex value and setting PORT D to the binary equivalent 
 There were some issues with analog jitter.  Filters were added to the top (1000) and bottom (50) for deadband.
 Several lsb were dropped and it didn't help, various delays and simple averaging filters were attempted (didn't help).
@@ -21,6 +25,7 @@ Device is not so simple any more.
  *  //  BTN       --> D08;
  *  //  EncoderA  --> D10;
  *  //  EncoderB  --> D11;
+ *  //  LED       --> D13;
  *  //  SCL       --> A04; Tied HIGH W/ 3k3 Ohm resistor
  *  //  SDA       --> A05; Tied HIGH W/ 3k3 Ohm resistor
 
@@ -46,11 +51,5 @@ Using library U8g2 at version 2.33.15 in folder: D:\Github\libraries\U8g2
 Using library Wire at version 1.0 in folder: C:..\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\Wire 
 Using library Encoder at version 1.4.2 in folder: D:\Github\libraries\Encoder 
 Using library SPI at version 1.0 in folder: C:..\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\SPI 
-Sketch uses 18706 bytes (60%) of program storage space. Maximum is 30720 bytes.
-Global variables use 1546 bytes (75%) of dynamic memory, leaving 502 bytes for local variables. Maximum is 2048 bytes.
-
-/*  DAP  initial check-in     02-09-2023 
-
-/*  DAP  added coarse adjust  03-10-2023
-
-*/
+Sketch uses 18658 bytes (60%) of program storage space. Maximum is 30720 bytes.
+Global variables use 1560 bytes (75%) of dynamic memory, leaving 488 bytes for local variables. Maximum is 2048 bytes.
