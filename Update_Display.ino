@@ -45,8 +45,8 @@ void UpdateDisplayEncoder(int temp)
     //bottom line of display
     u8g2.setFont(u8g2_font_ncenB10_tr);
     u8g2.setCursor(0,64);
-    u8g2.print("PVE Part = ");  
-    u8g2.setCursor(85,64);
+    u8g2.print("PVE Part ");  
+    u8g2.setCursor(75,64);
     u8g2.println(PartNumber(temp));
   } while ( u8g2.nextPage() );
 

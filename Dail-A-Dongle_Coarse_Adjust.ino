@@ -58,6 +58,7 @@ void setup(void)
   DDRD = B11111111; // set PORTD (digital 7~0) to outputs
   u8g2.begin();     //initialize the OLED library
   Serial.begin(115200); //setup serial even if it never gets used
+  Serial.println("Dail-A-Dongle setting up...");
 
   pinMode(buttonPin, INPUT_PULLUP);
   pinMode(ledPin, OUTPUT);
