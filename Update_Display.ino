@@ -17,6 +17,11 @@ void DisplaySplashScreen()
 void UpdateDisplayAnalog(int temp)
 {
 //update the display with the values from the read
+// Dsiplay is wrtten to in "pages" Top yellow has two pages each 8 pixels high 
+// Bottom section has 6 pages of blue, making 64 rows of pixels
+// There is a black hoizontal line that seperates
+// top and bottom
+
   u8g2.firstPage();
   do {
     //top line (in yelllow)
