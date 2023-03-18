@@ -57,6 +57,7 @@ void setup(void)
 {
   DDRD = B11111111; // set PORTD (digital 7~0) to outputs
   u8g2.begin();     //initialize the OLED library
+  DisplaySplashScreen();
   Serial.begin(115200); //setup serial even if it never gets used
   Serial.println("Dail-A-Dongle setting up...");
 

@@ -53,5 +53,5 @@ Using library U8g2 at version 2.33.15 in folder: D:\Github\libraries\U8g2
 Using library Wire at version 1.0 in folder: C:..\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\Wire 
 Using library Encoder at version 1.4.2 in folder: D:\Github\libraries\Encoder 
 Using library SPI at version 1.0 in folder: C:..\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\SPI 
-Sketch uses 18658 bytes (60%) of program storage space. Maximum is 30720 bytes.
-Global variables use 1560 bytes (75%) of dynamic memory, leaving 488 bytes for local variables. Maximum is 2048 bytes.
+Sketch uses 18878 bytes (61%) of program storage space. Maximum is 30720 bytes.
+Global variables use 1640 bytes (80%) of dynamic memory, leaving 408 bytes for local variables. Maximum is 2048 bytes.
