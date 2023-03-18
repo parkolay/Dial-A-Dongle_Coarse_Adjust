@@ -10,16 +10,16 @@ void UpdateDisplayAnalog(int temp)
 
     //next line of display space
     u8g2.setFont(u8g2_font_ncenB24_tr);
-    u8g2.setCursor(0,45);
+    u8g2.setCursor(0,40);				//was 45, needed to be moved up
     u8g2.print("Hex= ");  
-    u8g2.setCursor(85,45);
+    u8g2.setCursor(85,40);				//was 45, needed to be moved up
     u8g2.println(temp,HEX);
 
     //bottom line of display
     u8g2.setFont(u8g2_font_ncenB10_tr);
-    u8g2.setCursor(0,64);
-    u8g2.print("PVE Part = ");  
-    u8g2.setCursor(85,64);
+    u8g2.setCursor(0,60);				//was 64, but screen is blocked by case
+    u8g2.print("PVE Part ");  
+    u8g2.setCursor(75,60);				//was 64, but screen is blocked by case
     u8g2.println(PartNumber(temp));
   } while ( u8g2.nextPage() );
 
@@ -37,16 +37,16 @@ void UpdateDisplayEncoder(int temp)
 
     //next line of display space
     u8g2.setFont(u8g2_font_ncenB24_tr);
-    u8g2.setCursor(0,45);
+    u8g2.setCursor(0,40);				//was 45, needed to be moved up
     u8g2.print("Hex= ");  
-    u8g2.setCursor(85,45);
+    u8g2.setCursor(85,40);				//was 45, needed to be moved up
     u8g2.println(temp,HEX);
 
     //bottom line of display
     u8g2.setFont(u8g2_font_ncenB10_tr);
-    u8g2.setCursor(0,64);
+    u8g2.setCursor(0,60);				//was 64, but screen is blocked by case
     u8g2.print("PVE Part ");  
-    u8g2.setCursor(75,64);
+    u8g2.setCursor(75,60);				//was 64, but screen is blocked by case
     u8g2.println(PartNumber(temp));
   } while ( u8g2.nextPage() );
 
