@@ -28,8 +28,8 @@ Device is not so simple any more.
  *  //  EncoderA  --> D10;
  *  //  EncoderB  --> D11;
  *  //  LED       --> D13;
- *  //  SCL       --> A04; Tied HIGH W/ 3k3 Ohm resistor
- *  //  SDA       --> A05; Tied HIGH W/ 3k3 Ohm resistor
+ *  //  SCL       --> A04; Tied HIGH W/ 1k7 Ohm resistor
+ *  //  SDA       --> A05; Tied HIGH W/ 1k7 Ohm resistor
 
 Old Analog version;
 Using library U8g2 at version 2.33.15 in folder: D:\Github\libraries\U8g2 
