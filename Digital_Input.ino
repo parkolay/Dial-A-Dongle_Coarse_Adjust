@@ -5,7 +5,6 @@ void UpdateButtonInput()
     // read the state of the switch into a local variable:
   int reading = digitalRead(buttonPin);
 
-
   // check to see if you just pressed the button
   // (i.e. the input went from LOW to HIGH), and you've waited long enough
   // since the last press to ignore any noise:
