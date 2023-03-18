@@ -8,7 +8,7 @@ void DisplaySplashScreen()
     u8g2.setCursor(0,12);               
     u8g2.println("Dial-A-Dongle!");
 	u8g2.setCursor(0,40);
-	("Dail-A-Dongle setting up...");
+	u8g2.println("Dail-A-Dongle setting up...");
 
   } while ( u8g2.nextPage() );
 
