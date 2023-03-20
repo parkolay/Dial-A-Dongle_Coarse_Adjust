@@ -1,6 +1,5 @@
 /*  Dial-A-Dongle
  *  // Pinout
- *  //  Input     --> A00;  // used in prototype
  *  //  Input     --> A02;
  *  //  BIT 1     --> D00;
  *  //  BIT 2     --> D01;

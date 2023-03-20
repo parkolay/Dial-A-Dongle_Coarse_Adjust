@@ -16,6 +16,7 @@ Returning from coarse mode sets new encoder position to previous analog position
 Device is not so simple any more.
 
  *  // Pinout
+ *  //  Input     --> A00;  // used in prototype
  *  //  Input     --> A02;
  *  //  BIT 1     --> D00;
  *  //  BIT 2     --> D01;
