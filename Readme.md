@@ -17,6 +17,7 @@ Device is not so simple any more.
 
  *  // Pinout
  *  //  Input     --> A00;  // used in prototype
+ *  //  Batt mon  --> A01;
  *  //  Input     --> A02;
  *  //  BIT 1     --> D00;
  *  //  BIT 2     --> D01;
@@ -28,6 +29,7 @@ Device is not so simple any more.
  *  //  BTN       --> D08;
  *  //  EncoderA  --> D10;
  *  //  EncoderB  --> D11;
+ *  //  Engage    --> D12;
  *  //  LED       --> D13;
  *  //  SCL       --> A04; Tied HIGH W/ 1k7 Ohm resistor
  *  //  SDA       --> A05; Tied HIGH W/ 1k7 Ohm resistor

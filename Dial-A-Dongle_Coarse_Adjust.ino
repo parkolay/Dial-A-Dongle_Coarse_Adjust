@@ -1,6 +1,7 @@
 /*  Dial-A-Dongle
  *  // Pinout
  *  //  Input     --> A00;  // used in prototype
+ *  //  Batt mon  --> A01;
  *  //  Input     --> A02;
  *  //  BIT 1     --> D00;
  *  //  BIT 2     --> D01;
@@ -38,7 +39,7 @@
   int lastButtonState = LOW;  // the previous reading from the input pin
   int InputTypeState  = 0;    // toggle between course and fine adjust mode 
 
-  const int SENSE_PIN = A0;   //set analog 0 as batt sense pin
+  const int SENSE_PIN = A1;   //set analog 0 as batt sense pin
   const int SET_PIN   = A2;   //Analog pin for setting the dutyCycle value with a pontentiometer
   const int buttonPin = 8;    // the number of the pushbutton pin
   const int engage    = 12;   // used to engage Port-d output, I know, engage is a funny word for enable.
