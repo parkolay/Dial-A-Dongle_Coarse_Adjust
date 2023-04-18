@@ -9,8 +9,8 @@ int UpdateEncoder()
   {
     oldPosition = newPosition;
     EncoderPosition = oldPosition;
-    Serial.print("newPosition ");
-    Serial.println(newPosition);
+    // Serial.print("newPosition ");
+    // Serial.println(newPosition);
 
   //set constraints on EncoderPosition
     if (EncoderPosition <= 0)
@@ -21,7 +21,7 @@ int UpdateEncoder()
     {
       EncoderPosition = 0x7F;
     }
-      Serial.println(EncoderPosition);
+      // Serial.println(EncoderPosition);
 
   }//end if (newPosition != oldPosition) 
   return EncoderPosition;

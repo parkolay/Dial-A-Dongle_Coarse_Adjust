@@ -56,3 +56,21 @@ Using library Encoder at version 1.4.2 in folder: D:\Github\libraries\Encoder
 Using library SPI at version 1.0 in folder: C:..\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\SPI 
 Sketch uses 18878 bytes (61%) of program storage space. Maximum is 30720 bytes.
 Global variables use 1640 bytes (80%) of dynamic memory, leaving 408 bytes for local variables. Maximum is 2048 bytes.
+
+Issue Using Port D as output, bottom 2 LSB bits were not setting properly most likely due to serial calls (Tx/Rx use PortD 1/0)
+Serial calls were commented out in code and compiled to test
+
+Using library U8g2 at version 2.33.15 in folder: D:\Github\libraries\U8g2 
+Using library Wire at version 1.0 in folder: C:..\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\Wire 
+Using library Encoder at version 1.4.2 in folder: D:\Github\libraries\Encoder 
+Using library SPI at version 1.0 in folder: C:..\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\SPI
+Sketch uses 17410 bytes (56%) of program storage space. Maximum is 30720 bytes.
+Global variables use 1405 bytes (68%) of dynamic memory, leaving 643 bytes for local variables. Maximum is 2048 bytes.
+
+Added P code to PVE p/n, added "Engage" switch to enable/ disable Port D output
+Using library U8g2 at version 2.33.15 in folder: D:\Github\libraries\U8g2 
+Using library Wire at version 1.0 in folder: C:..\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\Wire 
+Using library Encoder at version 1.4.2 in folder: D:\Github\libraries\Encoder 
+Using library SPI at version 1.0 in folder: C:..\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\SPI
+Sketch uses 17810 bytes (57%) of program storage space. Maximum is 30720 bytes.
+Global variables use 1837 bytes (89%) of dynamic memory, leaving 211 bytes for local variables. Maximum is 2048 bytes.

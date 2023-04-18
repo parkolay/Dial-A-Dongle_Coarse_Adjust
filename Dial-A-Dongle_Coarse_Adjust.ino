@@ -12,6 +12,7 @@
  *  //  BTN       --> D08;
  *  //  EncoderA  --> D10;
  *  //  EncoderB  --> D11;
+ *  //  Engage    --> D12;
  *  //  LED       --> D13;
  *  //  SCL       --> A04; Tied HIGH W/ 1k7 Ohm resistor
  *  //  SDA       --> A05; Tied HIGH W/ 1k7 Ohm resistor
@@ -37,13 +38,14 @@ U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
   int RawAnalog       = 0;
   int FilteredAnalog  = 0;
   int AnalogReadValue = 0;
-  int ledState = HIGH;        // the current state of the output pin
+  int ledState        = HIGH; // the current state of the output pin
   int buttonState;            // the current reading from the input pin
   int lastButtonState = LOW;  // the previous reading from the input pin
-  int InputTypeState = 0;     // toggle between course and fine adjust mode 
+  int InputTypeState  = 0;    // toggle between course and fine adjust mode 
 
   const int SET_PIN   = A2;   //Analog pin for setting the dutyCycle value with a pontentiometer
   const int buttonPin = 8;    // the number of the pushbutton pin
+  const int engage    = 12;   // used to engage Port-d output
   const int ledPin    = 13;   // the number of the LED pin
 
 // the following variables are unsigned longs because the time, measured in
@@ -56,13 +58,14 @@ U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 
 void setup(void) 
 {
-  DDRD = B11111111; // set PORTD (digital 7~0) to outputs
+  //DDRD = B11111111; // set PORTD (digital 7~0) to outputs
   u8g2.begin();     //initialize the OLED library
   DisplaySplashScreen();
-  Serial.begin(115200); //setup serial even if it never gets used
-  Serial.println("Dail-A-Dongle setting up...");
+  // Serial.begin(115200); //setup serial even if it never gets used
+  // Serial.println("Dail-A-Dongle setting up...");
 
   pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(engage,INPUT_PULLUP);
   pinMode(ledPin, OUTPUT);
 
   // set initial LED state
@@ -76,16 +79,35 @@ void loop(void)
 
     if (InputTypeState == HIGH)     //has the momentary switch been pushed to change state to HIGH?
     { 
-      int temp = Update_Analog();  //update_analog() has a return that will set the temp varible
-      PORTD = temp;                //push the analog read value to PORTD  
-      UpdateDisplayAnalog(temp);  //now we send that same temp varible to another function
-      EncoderKnob.write(temp);    //we use the same temp varible one more time before we leve this area
+      int temp = Update_Analog();   //update_analog() has a return that will set the temp varible
+      if (engage == true)
+      {     
+        DDRD = B11111111;           // set PORTD (digital 7~0) to outputs
+        PORTD = temp;               //push the analog read value to PORTD       
+      }//end if (engage == true)
+      else 
+      {
+        DDRD = B00000010; // set PORTD (digital 7~0) to "mostly" inputs" 
+                          // this leaves the Tx pin set as an output and
+                          // the possibility of pn-11 to trigger a fault
+      }
+        UpdateDisplayAnalog(temp);  //now we send that same temp varible to another function
+        EncoderKnob.write(temp);    //we use the same temp varible one more time before we leve this area} 
     }//end if (InputTypeState == HIGH)
 
-    else if (InputTypeState == LOW)//has the momentary switch been pushed to change state to LOW?
+    else if (InputTypeState == LOW) //has the momentary switch been pushed to change state to LOW?
     {
       int temp = UpdateEncoder();
-      PORTD = temp;  //push the analog read value to PORTD
+      if (engage == true)
+      {      
+        DDRD = B11111111; // set PORTD (digital 7~0) to outputs
+        PORTD = temp;     //push the analog read value to PORTD
+      }//end if (engage == true) 
+      else 
+      {
+        DDRD = B00000010; // set PORTD (digital 7~0) to "mostly" onputs"       
+      }
+
       UpdateDisplayEncoder(temp);
     }// end else if (InputTypeState == LOW) 
 

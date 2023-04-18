@@ -7,8 +7,8 @@ void DisplaySplashScreen()
     u8g2.setFont(u8g2_font_ncenB12_tr);
     u8g2.setCursor(0,12);               
     u8g2.println("Dial-A-Dongle!");
-	u8g2.setCursor(0,40);
-	u8g2.println("Dail-A-Dongle setting up...");
+	  u8g2.setCursor(0,40);
+	  u8g2.println("Dail-A-Dongle setting up...");
 
   } while ( u8g2.nextPage() );
 
@@ -28,8 +28,16 @@ void UpdateDisplayAnalog(int temp)
     u8g2.setFont(u8g2_font_ncenB12_tr);
     u8g2.setCursor(0,12);               
     // u8g2.println("Dial-A-Dongle!");
-	u8g2.print("PORT-D "); //print text
-	u8g2.print(PORTD,BIN); //print port output
+	  u8g2.print("PORT-D "); //print text
+
+    if (engage == true)
+    {
+	    u8g2.print(PORTD,BIN); //print port output
+    }
+    else 
+    {
+      u8g2.print(" OFF!!! ");
+    }
 
     //next line of display space
     u8g2.setFont(u8g2_font_ncenB24_tr);
@@ -41,7 +49,7 @@ void UpdateDisplayAnalog(int temp)
     //bottom line of display
     u8g2.setFont(u8g2_font_ncenB10_tr);
     u8g2.setCursor(0,60);				//was 64, but screen is blocked by case
-    u8g2.print("PVE Part ");  
+    u8g2.print("PVE ");  
     u8g2.setCursor(75,60);				//was 64, but screen is blocked by case
     u8g2.println(PartNumber(temp));
   } while ( u8g2.nextPage() );
@@ -57,8 +65,16 @@ void UpdateDisplayEncoder(int temp)
     u8g2.setFont(u8g2_font_ncenB12_tr);
     u8g2.setCursor(0,12);               
     // u8g2.println("Dial-A-Dongle!");
-	u8g2.print("PORT-D "); //print text
-	u8g2.print(PORTD,BIN); //print port output
+	  u8g2.print("PORT-D "); //print text
+
+    if (engage == true)
+        {
+          u8g2.print(PORTD,BIN); //print port output
+        }
+        else 
+        {
+          u8g2.print(" OFF!!! ");
+        }
 
     //next line of display space
     u8g2.setFont(u8g2_font_ncenB24_tr);
@@ -70,7 +86,7 @@ void UpdateDisplayEncoder(int temp)
     //bottom line of display
     u8g2.setFont(u8g2_font_ncenB10_tr);
     u8g2.setCursor(0,60);				//was 64, but screen is blocked by case
-    u8g2.print("PVE Part ");  
+    u8g2.print("PVE ");  
     u8g2.setCursor(75,60);				//was 64, but screen is blocked by case
     u8g2.println(PartNumber(temp));
   } while ( u8g2.nextPage() );

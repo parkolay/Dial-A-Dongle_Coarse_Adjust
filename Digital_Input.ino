@@ -37,7 +37,7 @@ void UpdateButtonInput()
 
   // set the LED on pin 13:
   digitalWrite(ledPin, ledState);
-  Serial.println(ledState);
+  // Serial.println(ledState);
   InputTypeState = ledState;
 
   // save the reading. Next time through the loop, it'll be the lastButtonState:
