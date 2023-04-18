@@ -39,7 +39,7 @@
   int lastButtonState = LOW;  // the previous reading from the input pin
   int InputTypeState  = 0;    // toggle between course and fine adjust mode 
 
-  const int SENSE_PIN = A1;   //set analog 0 as batt sense pin
+  const int BATT_MON  = A1;   //set analog 0 as batt sense pin
   const int SET_PIN   = A2;   //Analog pin for setting the dutyCycle value with a pontentiometer
   const int buttonPin = 8;    // the number of the pushbutton pin
   const int engage    = 12;   // used to engage Port-d output, I know, engage is a funny word for enable.
@@ -57,7 +57,7 @@
 Encoder EncoderKnob(10, 11);
 
 //assign Batt to Battery library
-Battery batt = Battery(6400, 9000, SENSE_PIN);  //6.4V is battery low
+Battery batt = Battery(6400, 9000, BATT_MON);  //6.4V is battery low
 
 
 //tell the library which OLED is connected and how
