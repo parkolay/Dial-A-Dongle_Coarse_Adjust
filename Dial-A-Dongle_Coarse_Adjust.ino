@@ -23,17 +23,12 @@
 #include <Arduino.h>
 #include <U8g2lib.h>
 #include <Wire.h>
-
+#include <Battery.h>
 
 // This optional setting causes Encoder to use more optimized code,
 // It must be defined before Encoder.h is included.
 #define ENCODER_OPTIMIZE_INTERRUPTS
 #include <Encoder.h>
-
-Encoder EncoderKnob(10, 11);
-
-//tell the library which OLED is connected and how
-U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 
   int RawAnalog       = 0;
   int FilteredAnalog  = 0;
@@ -43,9 +38,10 @@ U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
   int lastButtonState = LOW;  // the previous reading from the input pin
   int InputTypeState  = 0;    // toggle between course and fine adjust mode 
 
+  const int SENSE_PIN = A0;   //set analog 0 as batt sense pin
   const int SET_PIN   = A2;   //Analog pin for setting the dutyCycle value with a pontentiometer
   const int buttonPin = 8;    // the number of the pushbutton pin
-  const int engage    = 12;   // used to engage Port-d output
+  const int engage    = 12;   // used to engage Port-d output, I know, engage is a funny word for enable.
   const int ledPin    = 13;   // the number of the LED pin
 
 // the following variables are unsigned longs because the time, measured in
@@ -56,6 +52,16 @@ U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
   long oldPosition  = -999;
   long EncoderPosition = 0;
 
+//assign Encoder Knob to Encoder library
+Encoder EncoderKnob(10, 11);
+
+//assign Batt to Battery library
+Battery batt = Battery(6400, 9000, SENSE_PIN);  //6.4V is battery low
+
+
+//tell the library which OLED is connected and how
+U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
+
 void setup(void) 
 {
   //DDRD = B11111111; // set PORTD (digital 7~0) to outputs
@@ -63,6 +69,10 @@ void setup(void)
   DisplaySplashScreen();
   // Serial.begin(115200); //setup serial even if it never gets used
   // Serial.println("Dail-A-Dongle setting up...");
+
+  // specify an activationPin & activationMode for on-demand configurations
+  //batt.onDemand(3, HIGH);
+  batt.begin(5000, 2.0);
 
   pinMode(buttonPin, INPUT_PULLUP);
   pinMode(engage,INPUT_PULLUP);

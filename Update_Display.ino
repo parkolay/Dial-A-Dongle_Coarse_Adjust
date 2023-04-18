@@ -1,3 +1,5 @@
+//
+
 void DisplaySplashScreen()
 {
 //update the display with the values from the read
@@ -12,7 +14,7 @@ void DisplaySplashScreen()
 
   } while ( u8g2.nextPage() );
 
-}	
+}//end of void DisplaySplashScreen()	
 
 void UpdateDisplayAnalog(int temp)
 {
@@ -24,50 +26,13 @@ void UpdateDisplayAnalog(int temp)
 
   u8g2.firstPage();
   do {
-    //top line (in yelllow)
-    u8g2.setFont(u8g2_font_ncenB12_tr);
-    u8g2.setCursor(0,12);               
-    // u8g2.println("Dial-A-Dongle!");
-	  u8g2.print("PORT-D "); //print text
+        //top line (in yelllow)
+        u8g2.setFont(u8g2_font_ncenB12_tr);
+        u8g2.setCursor(0,12);               
+        // u8g2.println("Dial-A-Dongle!");
+        u8g2.print("PORT-D "); //print text
 
-    if (engage == true)
-    {
-	    u8g2.print(PORTD,BIN); //print port output
-    }
-    else 
-    {
-      u8g2.print(" OFF!!! ");
-    }
-
-    //next line of display space
-    u8g2.setFont(u8g2_font_ncenB24_tr);
-    u8g2.setCursor(0,40);				//was 45, needed to be moved up
-    u8g2.print("Hex= ");  
-    u8g2.setCursor(85,40);				//was 45, needed to be moved up
-    u8g2.println(temp,HEX);
-
-    //bottom line of display
-    u8g2.setFont(u8g2_font_ncenB10_tr);
-    u8g2.setCursor(0,60);				//was 64, but screen is blocked by case
-    u8g2.print("PVE ");  
-    u8g2.setCursor(75,60);				//was 64, but screen is blocked by case
-    u8g2.println(PartNumber(temp));
-  } while ( u8g2.nextPage() );
-
-}
-
-void UpdateDisplayEncoder(int temp)
-{
-//update the display with the values from the read
-  u8g2.firstPage();
-  do {
-    //top line (in yelllow)
-    u8g2.setFont(u8g2_font_ncenB12_tr);
-    u8g2.setCursor(0,12);               
-    // u8g2.println("Dial-A-Dongle!");
-	  u8g2.print("PORT-D "); //print text
-
-    if (engage == true)
+        if (engage == true)
         {
           u8g2.print(PORTD,BIN); //print port output
         }
@@ -76,19 +41,55 @@ void UpdateDisplayEncoder(int temp)
           u8g2.print(" OFF!!! ");
         }
 
-    //next line of display space
-    u8g2.setFont(u8g2_font_ncenB24_tr);
-    u8g2.setCursor(0,40);				//was 45, needed to be moved up
-    u8g2.print("Hex= ");  
-    u8g2.setCursor(85,40);				//was 45, needed to be moved up
-    u8g2.println(temp,HEX);
+        //next line of display space
+        u8g2.setFont(u8g2_font_ncenB24_tr);
+        u8g2.setCursor(0,40);				//was 45, needed to be moved up
+        u8g2.print("Hex= ");  
+        u8g2.setCursor(85,40);				//was 45, needed to be moved up
+        u8g2.println(temp,HEX);
 
-    //bottom line of display
-    u8g2.setFont(u8g2_font_ncenB10_tr);
-    u8g2.setCursor(0,60);				//was 64, but screen is blocked by case
-    u8g2.print("PVE ");  
-    u8g2.setCursor(75,60);				//was 64, but screen is blocked by case
-    u8g2.println(PartNumber(temp));
+        //bottom line of display
+        u8g2.setFont(u8g2_font_ncenB10_tr);
+        u8g2.setCursor(0,60);				//was 64, but screen is blocked by case
+        u8g2.print("PVE ");  
+        u8g2.setCursor(75,60);				//was 64, but screen is blocked by case
+        u8g2.println(PartNumber(temp));
+        
   } while ( u8g2.nextPage() );
+}//end of void UpdateDisplayAnalog(int temp)
 
-}
+void UpdateDisplayEncoder(int temp)
+{
+//update the display with the values from the read
+  u8g2.firstPage();
+  do {
+        //top line (in yelllow)
+        u8g2.setFont(u8g2_font_ncenB12_tr);
+        u8g2.setCursor(0,12);               
+        // u8g2.println("Dial-A-Dongle!");
+        u8g2.print("PORT-D "); //print text
+
+        if (engage == true)
+        {
+          u8g2.print(PORTD,BIN); //print port output
+        }
+        else 
+        {
+          u8g2.print(" OFF!!! ");
+        }
+
+        //next line of display space
+        u8g2.setFont(u8g2_font_ncenB24_tr);
+        u8g2.setCursor(0,40);				//was 45, needed to be moved up
+        u8g2.print("Hex= ");  
+        u8g2.setCursor(85,40);				//was 45, needed to be moved up
+        u8g2.println(temp,HEX);
+
+        //bottom line of display
+        u8g2.setFont(u8g2_font_ncenB10_tr);
+        u8g2.setCursor(0,60);				//was 64, but screen is blocked by case
+        u8g2.print("PVE ");  
+        u8g2.setCursor(75,60);				//was 64, but screen is blocked by case
+        u8g2.println(PartNumber(temp));
+  } while ( u8g2.nextPage() );
+}//end of void UpdateDisplayEncoder(int temp)
