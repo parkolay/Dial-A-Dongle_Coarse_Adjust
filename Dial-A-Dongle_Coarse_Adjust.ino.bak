@@ -119,7 +119,7 @@ void loop(void)
       }//end if (engage == true) 
       else 
       {
-        DDRD = B00000010; // set PORTD (digital 7~0) to "mostly" onputs"       
+        DDRD = B00000010; // set PORTD (digital 7~0) to "mostly" inputs"       
       }
 
       UpdateDisplayEncoder(temp);

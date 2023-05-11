@@ -41,7 +41,7 @@
   int InputTypeState  = 0;    // toggle between course and fine adjust mode 
 
   const int BATT_MON  = A2;   //set analog 0 as batt sense pin
-  const int SET_PIN   = A1;   //Analog pin for setting the value with a pontentiometer
+  const int SET_PIN   = A1;   //Analog pin for setting the value with a potentiometer
   const int buttonPin = 8;    // the number of the pushbutton pin
   const int engage    = 12;   // used to engage Port-d output, I know, engage is a funny word for enable.
   const int ledPin    = 13;   // the number of the LED pin
@@ -93,7 +93,7 @@ void loop(void)
 
     if (InputTypeState == HIGH)     //has the momentary switch been pushed to change state to HIGH?
     { 
-      int temp = Update_Analog();   //update_analog() has a return that will set the temp varible
+      int temp = Update_Analog();   //update_analog() has a return that will set the temp variable
       if (PortCtrl == LOW)
       {     
         DDRD = B11111111;           // set PORTD (digital 7~0) to outputs
@@ -105,8 +105,8 @@ void loop(void)
                           // this leaves the Tx pin set as an output and
                           // the possibility of pn-11 to trigger a fault
       }
-        UpdateDisplayAnalog(temp);  //now we send that same temp varible to another function
-        EncoderKnob.write(temp);    //we use the same temp varible one more time before we leve this area} 
+        UpdateDisplayAnalog(temp);  //now we send that same temp variable to another function
+        EncoderKnob.write(temp);    //we use the same temp variable one more time before we leave this area} 
     }//end if (InputTypeState == HIGH)
 
     else if (InputTypeState == LOW) //has the momentary switch been pushed to change state to LOW?
