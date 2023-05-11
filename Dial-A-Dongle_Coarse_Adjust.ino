@@ -36,11 +36,12 @@
   int AnalogReadValue = 0;
   int ledState        = HIGH; // the current state of the output pin
   int buttonState;            // the current reading from the input pin
+  int PortCtrl;               // chose not to give it an initialized state 
   int lastButtonState = LOW;  // the previous reading from the input pin
   int InputTypeState  = 0;    // toggle between course and fine adjust mode 
 
-  const int BATT_MON  = A1;   //set analog 0 as batt sense pin
-  const int SET_PIN   = A2;   //Analog pin for setting the dutyCycle value with a pontentiometer
+  const int BATT_MON  = A2;   //set analog 0 as batt sense pin
+  const int SET_PIN   = A1;   //Analog pin for setting the value with a pontentiometer
   const int buttonPin = 8;    // the number of the pushbutton pin
   const int engage    = 12;   // used to engage Port-d output, I know, engage is a funny word for enable.
   const int ledPin    = 13;   // the number of the LED pin
@@ -88,10 +89,12 @@ void loop(void)
 {
   UpdateButtonInput();
 
+    PortCtrl = digitalRead(engage);
+
     if (InputTypeState == HIGH)     //has the momentary switch been pushed to change state to HIGH?
     { 
       int temp = Update_Analog();   //update_analog() has a return that will set the temp varible
-      if (engage == true)
+      if (PortCtrl == LOW)
       {     
         DDRD = B11111111;           // set PORTD (digital 7~0) to outputs
         PORTD = temp;               //push the analog read value to PORTD       
@@ -109,7 +112,7 @@ void loop(void)
     else if (InputTypeState == LOW) //has the momentary switch been pushed to change state to LOW?
     {
       int temp = UpdateEncoder();
-      if (engage == true)
+      if (PortCtrl == LOW)
       {      
         DDRD = B11111111; // set PORTD (digital 7~0) to outputs
         PORTD = temp;     //push the analog read value to PORTD

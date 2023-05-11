@@ -17,8 +17,8 @@ Device is not so simple any more.
 
  *  // Pinout
  *  //  Input     --> A00;  // used in prototype
- *  //  Batt mon  --> A01;
- *  //  Input     --> A02;
+ *  //  Batt mon  --> A02;
+ *  //  Input     --> A01;
  *  //  BIT 1     --> D00;
  *  //  BIT 2     --> D01;
  *  //  BIT 3     --> D02;
