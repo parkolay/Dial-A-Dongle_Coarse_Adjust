@@ -44,7 +44,7 @@ Encoder EncoderKnob(10, 11);
   int lastButtonState = LOW;  // the previous reading from the input pin
   int InputTypeState  = 0;    // toggle between course and fine adjust mode 
 
-  const int BATT_MON  = A1;   //set analog 2 as batt sense pin
+  const int BATT_MON  = A1;   //set analog 1 as batt sense pin
   const int SET_PIN   = A2;   //Analog pin for setting the value with a potentiometer
   const int buttonPin = 8;    // the number of the pushbutton pin
   const int engage    = 12;   // used to engage Port-d output, I know, engage is a funny word for enable.
