@@ -31,17 +31,21 @@
 #define ENCODER_OPTIMIZE_INTERRUPTS
 #include <Encoder.h>
 
+//assign Encoder Knob to Encoder library
+Encoder EncoderKnob(10, 11);
+
   int RawAnalog       = 0;
   int FilteredAnalog  = 0;
   int AnalogReadValue = 0;
+  int AnalogReadBattValue = 0;
   int ledState        = HIGH; // the current state of the output pin
   int buttonState;            // the current reading from the input pin
   int PortCtrl;               // chose not to give it an initialized state 
   int lastButtonState = LOW;  // the previous reading from the input pin
   int InputTypeState  = 0;    // toggle between course and fine adjust mode 
 
-  const int BATT_MON  = A2;   //set analog 0 as batt sense pin
-  const int SET_PIN   = A1;   //Analog pin for setting the value with a potentiometer
+  const int BATT_MON  = A1;   //set analog 2 as batt sense pin
+  const int SET_PIN   = A2;   //Analog pin for setting the value with a potentiometer
   const int buttonPin = 8;    // the number of the pushbutton pin
   const int engage    = 12;   // used to engage Port-d output, I know, engage is a funny word for enable.
   const int ledPin    = 13;   // the number of the LED pin
@@ -54,11 +58,10 @@
   long oldPosition  = -999;
   long EncoderPosition = 0;
 
-//assign Encoder Knob to Encoder library
-Encoder EncoderKnob(10, 11);
+
 
 //assign Batt to Battery library
-Battery batt = Battery(6400, 9000, BATT_MON);  //6.4V is battery low
+Battery batt = Battery(3200, 4500, BATT_MON);  //6.4V is battery low
 
 
 //tell the library which OLED is connected and how
@@ -74,7 +77,7 @@ void setup(void)
 
   // specify an activationPin & activationMode for on-demand configurations
   //batt.onDemand(3, HIGH);
-  batt.begin(5000, 2.0);
+  batt.begin(3500, 2.0);
 
   pinMode(buttonPin, INPUT_PULLUP);
   pinMode(engage,INPUT_PULLUP);
@@ -101,9 +104,12 @@ void loop(void)
       }//end if (engage == true)
       else 
       {
-        DDRD = B00000010; // set PORTD (digital 7~0) to "mostly" inputs" 
+        DDRD = B00000000; //was DDRD = B00000010;
+                          // set PORTD (digital 7~0) to "mostly" inputs" 
                           // this leaves the Tx pin set as an output and
                           // the possibility of pn-11 to trigger a fault
+                          //this did set hex 0x02 and it was changed to all 0's
+
       }
         UpdateDisplayAnalog(temp);  //now we send that same temp variable to another function
         EncoderKnob.write(temp);    //we use the same temp variable one more time before we leave this area} 
@@ -119,7 +125,7 @@ void loop(void)
       }//end if (engage == true) 
       else 
       {
-        DDRD = B00000010; // set PORTD (digital 7~0) to "mostly" inputs"       
+        DDRD = B00000000; // set PORTD (digital 7~0) to "mostly" inputs"       
       }
 
       UpdateDisplayEncoder(temp);

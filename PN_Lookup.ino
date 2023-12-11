@@ -57,21 +57,50 @@ const char* PartNumber(int pn)
     "PN-122 P24AF",//Hex 0x32 //WAHT!!???
     "PN-123 -N/A-",//Hex 0x33
     "PN-126 P24B7",//Hex 0x34
-    "PN-127 P24B7",//Hex 0x35
-    "PN-131 RlgCd",// No hex0x36 in the box, found in PVE doc    
-    "PN-134 P20FE",//Hex 0x37
-    "PN-135 P206B",//Hex 0x38
-    "PN-136 P205C",//Hex 0x39
-    "PN-137 P205A",//Hex 0x3A
-    "PN-138 P205B",//Hex 0x3B
-    "PN-139 P2205",//Hex 0x3C
-    "PN-140 P2206",//Hex 0x3D
-    "PN-141 P2208",//Hex 0x3E
-    "PN-142 P22A3",//Hex 0x3F
-    "PN-143 P22A4",//Hex 0x40
-    "PN-144 P22A6",//Hex 0x41
-    "PN-146 P205B",//Hex 0x42
-    "PN-148 P20B2",//Hex 0x43
+    "   P24B7",//Hex 0x35
+    "RlgCd",// No hex0x36 in the box, found in PVE doc 
+    "P20FE",//Hex 0x37
+    "P206B",//Hex 0x38
+    "P205C",//Hex 0x39
+    "P205A",//Hex 0x3A
+    "P205B",//Hex 0x3B
+    "P2205",//Hex 0x3C
+    "P2206",//Hex 0x3D
+    "P2208",//Hex 0x3E
+    "P22A3",//Hex 0x3F
+    "P22A4",//Hex 0x40
+    "P22A6",//Hex 0x41
+    "P205B",//Hex 0x42
+    "P20B2",//Hex 0x43
+    "P203B",//Hex 0x44
+    "P2578",//Hex 0x45
+    "P2582",//Hex 0x46
+    "P0049",//Hex 0x47
+    "P2EFE",//Hex 0x48
+    "P056E",//Hex 0x49
+    "P2F8D-8F",//Hex 0x4A
+    "P2AB2-A3",//Hex 0x4B
+    "P2AB2-A2",//Hex 0x4C
+    "P2F8D-13",//Hex 0x4D
+    "P2F8D-12",//Hex 0x4E
+    "P2F89-16",//Hex 0x4F
+    "P0429-86",//Hex 0x50
+    "P0429-87",//Hex 0x51
+    "P0429-49",//Hex 0x52
+    "P2F8D-96",//Hex 0x53
+    "P0429-24",//Hex 0x54
+    "P2F8D-4B",//Hex 0x55
+    "P2F8D-85",//Hex 0x56
+    "P2F85-13",//Hex 0x57
+    "P2F85-12",//Hex 0x58
+    "P04F2-11",//Hex 0x59
+    "P2F8D-98",//Hex 0x5A
+    "P2F89-17",//Hex 0x5B
+    "P04F2-12",//Hex 0x5C
+    "P2AB1-94",//Hex 0x5D
+    "P2AB1-84",//Hex 0x5E
+    
+
   };//end of static char* pmName[0x7f] =
 
   if (pn > 0 && pn < 0x80) 

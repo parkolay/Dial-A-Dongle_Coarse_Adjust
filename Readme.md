@@ -17,8 +17,8 @@ Device is not so simple any more.
 
  *  // Pinout
  *  //  Input     --> A00;  // used in prototype
- *  //  Batt mon  --> A02;
- *  //  Input     --> A01;
+ *  //  Batt mon  --> A01;
+ *  //  Input     --> A02;
  *  //  BIT 1     --> D00;
  *  //  BIT 2     --> D01;
  *  //  BIT 3     --> D02;
@@ -81,8 +81,27 @@ Added Battery monitoring
 Using library U8g2 at version 2.33.15 in folder: D:\Github\libraries\U8g2 
 Using library Wire at version 1.0 in folder: C:..\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\Wire
 Using library Battery Sense at version 1.1.1 in folder: D:\Github\libraries\Battery_Sense 
-Using library U8g2 at version 2.33.15 in folder: D:\Github\libraries\U8g2  
 Using library Encoder at version 1.4.2 in folder: D:\Github\libraries\Encoder 
 Using library SPI at version 1.0 in folder: C:..\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\SPI
 Sketch uses 17972 bytes (58%) of program storage space. Maximum is 30720 bytes.
 Global variables use 1852 bytes (90%) of dynamic memory, leaving 196 bytes for local variables. Maximum is 2048 bytes.
+
+Removed Battery monitor during port off
+Using library U8g2 at version 2.33.15 in folder: D:\Github\libraries\U8g2 
+Using library Wire at version 1.0 in folder: C:..\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\Wire
+Using library Battery Sense at version 1.1.1 in folder: D:\Github\libraries\Battery_Sense 
+Using library Encoder at version 1.4.2 in folder: D:\Github\libraries\Encoder 
+Using library SPI at version 1.0 in folder: C:..\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\SPI
+Sketch uses 18736 bytes (60%) of program storage space. Maximum is 30720 bytes.
+Global variables use 1875 bytes (91%) of dynamic memory, leaving 173 bytes for local variables. Maximum is 2048 bytes.
+
+Added more P-codes for EHC box (ISSUE with memory @ 93% --> this will not allow the encoder values to pass update of encoder)
+Using library U8g2 at version 2.34.22 in folder: D:\Github\libraries\U8g2 
+Using library Wire at version 1.0 in folder: C:..\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\Wire 
+Using library Battery Sense at version 1.1.1 in folder: D:\Github\libraries\Battery_Sense 
+Using library Encoder at version 1.4.2 in folder: D:\Github\libraries\Encoder 
+Using library SPI at version 1.0 in folder: C:..\Arduino15\packages\arduino\hardware\avr\1.8.6\libraries\SPI 
+Sketch uses 18720 bytes (60%) of program storage space. Maximum is 30720 bytes.
+Global variables use 1917 bytes (93%) of dynamic memory, leaving 131 bytes for local variables. Maximum is 2048 bytes.
+!!!!!!!!!!!!!!!THIS BROKE THE ENCODER, GLOBAL VARIBLE MEMORY MUST BE <= 92%!!!!!!!!!!!!!!!
+

@@ -10,3 +10,15 @@ int Update_Analog()
     // Serial.println(AnalogReadValue);  
     return AnalogReadValue;
 }//end int Update_Analog()
+
+int Update_BattAnalog()
+{
+    AnalogReadBattValue = analogRead(BATT_MON); //read the analog input
+    // Serial.print("RawAnalogReadValue ");  
+    // Serial.println(AnalogReadValue);     
+    //AnalogReadBattValue = map(AnalogReadBattValue,0,1023,0,100);// using the map function 
+    // Serial.print("Processed AnalogReadValue ");  
+    // Serial.println(AnalogReadValue);  
+    return AnalogReadBattValue;
+}//end int Update_Analog()
+
