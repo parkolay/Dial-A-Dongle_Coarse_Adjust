@@ -70,10 +70,12 @@ U8G2_SSD1306_128X64_NONAME_1_HW_I2C u8g2(U8G2_R0, /* reset=*/ U8X8_PIN_NONE);
 void setup(void) 
 {
   //DDRD = B11111111; // set PORTD (digital 7~0) to outputs
-  u8g2.begin();     //initialize the OLED library
-  DisplaySplashScreen();
+  // Setting up serial will use port D pins 0 & 1 for Tx and Rx which could be done but not handled well here without rewritting code
   // Serial.begin(115200); //setup serial even if it never gets used
   // Serial.println("Dail-A-Dongle setting up...");
+
+  u8g2.begin();     //initialize the OLED library
+  DisplaySplashScreen();
 
   // specify an activationPin & activationMode for on-demand configurations
   //batt.onDemand(3, HIGH);
@@ -85,6 +87,8 @@ void setup(void)
 
   // set initial LED state
   digitalWrite(ledPin, ledState);
+
+  // Serial.println("Dail-A-Dongle is ready! ");
   
 }
 

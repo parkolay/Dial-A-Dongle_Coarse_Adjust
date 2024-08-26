@@ -2,19 +2,18 @@
 
 void DisplaySplashScreen()
 {
-//update the display with the values from the read
+  //update the display with the values from the read
+
   u8g2.firstPage();
   do {
-    //top line (in yelllow)
-    u8g2.setFont(u8g2_font_ncenB12_tr);
-    u8g2.setCursor(0,12);               
-    //u8g2.println("Dial-A-Dongle!"); //these two lines increased the global varible by 2%
-    //bottom line (in blue)
-	  u8g2.setCursor(0,41);
-	  //u8g2.println("Dail-A-Dongle setting up...");
-
-  } while ( u8g2.nextPage() );
-
+        //top line (in yelllow)
+        u8g2.setFont(u8g2_font_ncenB12_tr);
+        u8g2.setCursor(0,12);               
+        //u8g2.println("Dial-A-Dongle!"); //these two lines increased the global varible by 2%
+        //bottom line (in blue)
+        u8g2.setCursor(0,41);
+        //u8g2.println("Dail-A-Dongle setting up...");
+     } while ( u8g2.nextPage() );                                                                                                                                                      
 }//end of void DisplaySplashScreen()	
 
 void UpdateDisplayAnalog(int temp)
